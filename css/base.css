@@ -2,20 +2,34 @@ body {
     padding-top: 10px;
     text-align: center;
     color: #fff;
+    width: 100%;
     background: #000;
     font-family: arial, monospace;
-    background: url(../imgs/background.jpg);
+    /* background: url(../imgs/background.jpg); */
  }
 p {
     margin: 5px 0;
  }
-input.tabelline {
 
+ span.fadein {
+    background-color: black;
+    animation-name: f_in;
+    animation-duration: 1s;
+ }
+ @keyframes f_in {
+    from {background-color: red;}
+    to {background-color: black;}
+ }
 
-}
 body.h2 {
     color: #555;
 
+}
+input.tabelline {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
 
  div.tabelline {
@@ -23,7 +37,7 @@ body.h2 {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
-    padding: 10px 20px;
+    padding: 10px 10px; 
     border: 1px solid #b7b7b7;
     -webkit-border-radius: 3px;
     border-radius: 3px;
@@ -35,8 +49,9 @@ p.result-elem-ko {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
-    width: 150px;
-    padding: 4px;
+    width: 100%;
+    padding: 2px;
+    margin: 2px 0;
     overflow: hidden;
     border: none;
     -webkit-border-radius: 5px;
@@ -59,8 +74,9 @@ p.result-elem-ok {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
-    width: 150px;
-    padding: 4px;
+    width: 100%;
+    padding: 2px;
+    margin: 2px 0;
     overflow: hidden;
     border: none;
     -webkit-border-radius: 5px;

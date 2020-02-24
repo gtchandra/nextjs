@@ -6,9 +6,7 @@ function TabellineApp() {
     const [results, setResults]=useState([])
     const [currentquestion, setCurrentquestion]=useState([2+Math.floor(Math.random()*8),2+Math.floor(Math.random()*8)])
     const [currentanswer, setCurrentanswer]=useState("")
-    
     const handleSubmit=(event)=>{ 
-        
         setCurrentquestion([2+Math.floor(Math.random()*8),2+Math.floor(Math.random()*8)])
         event.preventDefault()
         setCurrentanswer('')
@@ -37,7 +35,7 @@ function TabellineApp() {
     const displayLog = ()=>results.map((r)=>(<ResultElem text={r.text} ok={r.ok} />))
     
     return (<div className="tabelline">
-                <span>Solve: {currentquestion[0]}X{currentquestion[1]}</span><br/><br/>
+                <span className="fadein" >Solve: {currentquestion[0]}X{currentquestion[1]}</span><br/><br/>
                 <form autocomplete="off"  onSubmit={handleSubmit}>
                     <input className="tabelline" autofocus name="currentanswer"  value={currentanswer} type="number" onChange={handleChange}/>
                     <button>ok</button>

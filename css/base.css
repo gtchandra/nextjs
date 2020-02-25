@@ -10,7 +10,9 @@ body {
 p {
     margin: 5px 0;
  }
-
+span.timer {
+    font: normal 36px/1 Arial, Helvetica, sans-serif;
+}
  span.fadein {
     background-color: black;
     animation-name: f_in;

@@ -42,7 +42,7 @@ useEffect (()=>{
     const displayLog = ()=>results.map((r)=>(<ResultElem text={r.text} ok={r.ok} />))
     
     return (<div className="tabelline">
-                <span className="timer">{timespent}</span><br/>
+                <span className="timer">>{timespent}<</span><br/>
                 <span className="fadein" >Solve: {currentquestion[0]}X{currentquestion[1]}</span><br/><br/>
                 <form autoComplete="off"  onSubmit={handleSubmit}>
                     <input className="tabelline" autoFocus name="currentanswer"  value={currentanswer} type="number" onChange={handleChange}/>

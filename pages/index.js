@@ -71,7 +71,7 @@ useEffect (()=>{
     return (<div className="tabelline">
     
                 <span className="fadein" >{currentquestion[0]}X{currentquestion[1]}? remaining:{questionlist.length}</span><br/>
-                <span className="timer">{timespent}</span><br/>
+                <span className="timer">{emojirank[timespent]}</span><br/>
                 <form autoComplete="off"  onSubmit={handleSubmit}>
                     <input className="tabelline" autoFocus name="currentanswer"  value={currentanswer} type="number" onChange={handleChange}/>
                     <button>ok</button>

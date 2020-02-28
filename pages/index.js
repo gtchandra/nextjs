@@ -8,7 +8,8 @@ function TabellineApp() {
     const [currentanswer, setCurrentanswer]=useState("")
     const [questionlist, setQuestionlist]=useState([]) //added state which includes all random  couples defined
     const [timespent, setTimespent]=useState(10) // to be used as a timer backto 0 
-    
+    const emojirank=["😪","🤨","😐","😅","😉","😀","😄","😁","😎","🤩","🤩"]
+
     const handleSubmit=(event)=>{
         var [a,b]=randomChoose()
         setCurrentquestion([a,b])        
@@ -43,7 +44,7 @@ function TabellineApp() {
         let b=currentquestion[1] 
        
         if ((a*b)===currentanswer) {
-            setResults((prevState)=>([{text:`${a}x${b}=${currentanswer} t=${timespent}`,ok:true},...prevState]))
+            setResults((prevState)=>([{text:`${a}x${b}=${currentanswer}`,rank:emojirank[timespent],ok:true},...prevState]))
         }
         else {
             setResults((prevState)=>([{text:`${a}x${b}=${currentanswer}`,ok:false},...prevState]))
@@ -65,10 +66,10 @@ useEffect (()=>{
     const handleChange=(event)=>{
         setCurrentanswer(parseInt(event.target.value,10))
     }
-    const displayLog = ()=>results.map((r)=>(<ResultElem text={r.text} ok={r.ok} />))
+    const displayLog = ()=>results.map((r)=>(<ResultElem text={r.text} rank={r.rank} ok={r.ok} />))
     
     return (<div className="tabelline">
-                <span> TEST:{questionlist.length}</span><br/>
+    
                 <span className="fadein" >Solve: {currentquestion[0]}X{currentquestion[1]}</span><br/>
                 <span className="timer">&gt;{timespent}&lt;</span><br/>
                 <form autoComplete="off"  onSubmit={handleSubmit}>
@@ -78,6 +79,8 @@ useEffect (()=>{
                 <div className="tabelline-log">
                   {displayLog()}
                 </div>
+                <br/><br/>
+                <span> remaining:{questionlist.length}</span><br/>
             </div>)
 }
 

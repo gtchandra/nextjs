@@ -10,6 +10,7 @@ function TabellineApp() {
     
     const handleSubmit=(event)=>{ 
         setCurrentquestion([2+Math.floor(Math.random()*8),2+Math.floor(Math.random()*8)])
+        // this has to change to improve randomness
         event.preventDefault()
         setCurrentanswer('')
         setTimespent(10)

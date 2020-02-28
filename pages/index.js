@@ -70,8 +70,8 @@ useEffect (()=>{
     
     return (<div className="tabelline">
     
-                <span className="fadein" >Solve: {currentquestion[0]}X{currentquestion[1]}</span><br/>
-                <span className="timer">&gt;{timespent}&lt;</span><br/>
+                <span className="fadein" >{currentquestion[0]}X{currentquestion[1]}? remaining:{questionlist.length}</span><br/>
+                <span className="timer">{timespent}</span><br/>
                 <form autoComplete="off"  onSubmit={handleSubmit}>
                     <input className="tabelline" autoFocus name="currentanswer"  value={currentanswer} type="number" onChange={handleChange}/>
                     <button>ok</button>
@@ -79,8 +79,6 @@ useEffect (()=>{
                 <div className="tabelline-log">
                   {displayLog()}
                 </div>
-                <br/><br/>
-                <span> remaining:{questionlist.length}</span><br/>
             </div>)
 }
 

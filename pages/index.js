@@ -68,7 +68,7 @@ useEffect (()=>{
     const displayLog = ()=>results.map((r)=>(<ResultElem text={r.text} ok={r.ok} />))
     
     return (<div className="tabelline">
-                {/* <span> TEST:{questionlist.length}</span><br/> */}
+                <span> TEST:{questionlist.length}</span><br/>
                 <span className="fadein" >Solve: {currentquestion[0]}X{currentquestion[1]}</span><br/>
                 <span className="timer">&gt;{timespent}&lt;</span><br/>
                 <form autoComplete="off"  onSubmit={handleSubmit}>

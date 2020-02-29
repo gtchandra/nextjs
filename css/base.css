@@ -7,9 +7,7 @@ body {
     font-family: arial, monospace;
     /* background: url(../imgs/background.jpg); */
  }
-p {
-    margin: 5px 0;
- }
+
 span.timer {
     font: normal 18px/1 Arial, Helvetica, sans-serif;
 }
@@ -47,33 +45,31 @@ input.tabelline {
     font: normal 16px/normal Arial, Helvetica, sans-serif;
    
 }
+ul {
+    padding-left: 0;
+}
 
-p.result-elem-ko {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
+li.result-elem-ok {
+    background-color:#00aa00;
     width: 100%;
     padding: 2px;
     margin: 2px 0;
     overflow: hidden;
     border: none;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
     font: normal 16px/1 Arial, Helvetica, sans-serif;
     color: rgba(255,255,255,1);
-    text-indent: 5px;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    background: #ca0606;
-    -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
-    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
-    -webkit-transition: all 400ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-    -moz-transition: all 400ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-    -o-transition: all 400ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-    transition: all 400ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
-p.result-elem-ok {
+li.result-elem-ko {
+    background-color:#FF0000;
+    width: 100%;
+    padding: 2px;
+    margin: 2px 0;
+    overflow: hidden;
+    border: none;
+    font: normal 16px/1 Arial, Helvetica, sans-serif;
+    color: rgba(255,255,255,1);
+}
+p.sss{
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;

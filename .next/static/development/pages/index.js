@@ -169,14 +169,15 @@ var _jsxFileName = "/Users/gab/nextjs/components/resultelem.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ResultElem(props) {
-  return __jsx("p", {
+  return __jsx("li", {
     className: props.ok ? "result-elem-ok" : "result-elem-ko",
+    key: props.pos,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 2
     },
     __self: this
-  }, props.text, props.ok ? " 😎" : " 👎");
+  }, props.text, props.ok ? props.rank : " 👎");
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (ResultElem);
@@ -509,6 +510,25 @@ module.exports = _createClass;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _arrayWithHoles; });
+/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/array/is-array */ "./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js");
+/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__);
+
+function _arrayWithHoles(arr) {
+  if (_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default()(arr)) return arr;
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithoutHoles.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithoutHoles.js ***!
@@ -556,6 +576,70 @@ function _iterableToArray(iter) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _iterableToArrayLimit; });
+/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/get-iterator */ "./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js");
+/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/is-iterable */ "./node_modules/@babel/runtime-corejs2/core-js/is-iterable.js");
+/* harmony import */ var _core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _iterableToArrayLimit(arr, i) {
+  if (!(_core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1___default()(Object(arr)) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
+    return;
+  }
+
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default()(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _nonIterableRest; });
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableSpread.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableSpread.js ***!
@@ -568,6 +652,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _nonIterableSpread; });
 function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _slicedToArray; });
+/* harmony import */ var _arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayWithHoles */ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js");
+/* harmony import */ var _iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iterableToArrayLimit */ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js");
+/* harmony import */ var _nonIterableRest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nonIterableRest */ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js");
+
+
+
+function _slicedToArray(arr, i) {
+  return Object(_arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || Object(_iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__["default"])(arr, i) || Object(_nonIterableRest__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 /***/ }),
@@ -8783,74 +8889,151 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/parse-int */ "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_MyLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/MyLayout */ "./components/MyLayout.js");
-/* harmony import */ var _components_resultelem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/resultelem */ "./components/resultelem.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_MyLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/MyLayout */ "./components/MyLayout.js");
+/* harmony import */ var _components_resultelem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/resultelem */ "./components/resultelem.js");
+
 
 
 var _jsxFileName = "/Users/gab/nextjs/pages/index.js";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement;
 
 
 
 
 function TabellineApp() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])([]),
       results = _useState[0],
       setResults = _useState[1];
 
-  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([2 + Math.floor(Math.random() * 8), 2 + Math.floor(Math.random() * 8)]),
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])([2 + Math.floor(Math.random() * 8), 2 + Math.floor(Math.random() * 8)]),
       currentquestion = _useState2[0],
       setCurrentquestion = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(""),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(""),
       currentanswer = _useState3[0],
       setCurrentanswer = _useState3[1];
 
+  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])([]),
+      questionlist = _useState4[0],
+      setQuestionlist = _useState4[1]; //added state which includes all random  couples defined
+
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(10),
+      timespent = _useState5[0],
+      setTimespent = _useState5[1]; // to be used as a timer backto 0 
+
+
+  var emojirank = ["😪", "🤨", "😐", "😅", "😉", "😀", "😄", "😁", "😎", "🤩", "🤩"];
+
   var handleSubmit = function handleSubmit(event) {
-    setCurrentquestion([2 + Math.floor(Math.random() * 8), 2 + Math.floor(Math.random() * 8)]);
+    var _randomChoose = randomChoose(),
+        _randomChoose2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_randomChoose, 2),
+        a = _randomChoose2[0],
+        b = _randomChoose2[1];
+
+    setCurrentquestion([a, b]); // this has to change to improve randomness
+
     event.preventDefault();
     setCurrentanswer('');
+    setTimespent(10);
     addResults();
+  };
+
+  var randomGenerate = function randomGenerate() {
+    var x = [];
+
+    for (var i = 2; i < 10; i++) {
+      for (var j = 2; j < 10; j++) {
+        x.push([i, j]);
+      }
+    }
+
+    setQuestionlist(x);
+  };
+
+  var randomChoose = function randomChoose() {
+    if (questionlist.length === 0) {
+      randomGenerate();
+    }
+
+    var chosen = Math.floor(Math.random() * questionlist.length);
+
+    var _questionlist$chosen = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(questionlist[chosen], 2),
+        out1 = _questionlist$chosen[0],
+        out2 = _questionlist$chosen[1];
+
+    setQuestionlist(function (prevState) {
+      return prevState.filter(function (x, i) {
+        return chosen != i ? x : null;
+      });
+    }); //return random couple and remove it from the array
+
+    return [out1, out2];
   };
 
   var addResults = function addResults() {
     var a = currentquestion[0];
     var b = currentquestion[1];
+    var cnt = results.length;
 
     if (a * b === currentanswer) {
       setResults(function (prevState) {
         return [{
+          id: cnt,
           text: "".concat(a, "x").concat(b, "=").concat(currentanswer),
+          rank: emojirank[timespent],
           ok: true
         }].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(prevState));
       });
     } else {
       setResults(function (prevState) {
         return [{
+          id: cnt,
           text: "".concat(a, "x").concat(b, "=").concat(currentanswer),
           ok: false
         }].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(prevState));
       });
     }
-  }; // useEffect (()=>{
-  //     },[currentanswer])
+  };
 
+  function updateTimer() {
+    setTimespent(function (prev) {
+      return prev > 0 ? prev - 1 : 0;
+    });
+  }
+
+  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
+    var timerOn = setInterval(function () {
+      updateTimer();
+    }, 1000);
+
+    if (questionlist.length === 0) {
+      randomGenerate();
+    }
+
+    return function () {
+      return clearInterval(timerOn);
+    };
+  }, []);
 
   var handleChange = function handleChange(event) {
     setCurrentanswer(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(event.target.value, 10));
   };
 
   var displayLog = function displayLog() {
-    return results.map(function (r) {
-      return __jsx(_components_resultelem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    return results.map(function (r, i) {
+      return __jsx(_components_resultelem__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        pos: i,
         text: r.text,
+        rank: r.rank,
         ok: r.ok,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 70
         },
         __self: this
       });
@@ -8861,76 +9044,83 @@ function TabellineApp() {
     className: "tabelline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 72
     },
     __self: this
   }, __jsx("span", {
     className: "fadein",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 74
     },
     __self: this
-  }, "Solve: ", currentquestion[0], "X", currentquestion[1]), __jsx("br", {
+  }, currentquestion[0], "X", currentquestion[1], "? remaining:", questionlist.length), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 74
     },
     __self: this
-  }), __jsx("br", {
+  }), __jsx("span", {
+    className: "timer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 75
+    },
+    __self: this
+  }, emojirank[timespent]), __jsx("br", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
     },
     __self: this
   }), __jsx("form", {
-    autocomplete: "off",
+    autoComplete: "off",
     onSubmit: handleSubmit,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 76
     },
     __self: this
   }, __jsx("input", {
     className: "tabelline",
-    autofocus: true,
+    autoFocus: true,
     name: "currentanswer",
     value: currentanswer,
     type: "number",
     onChange: handleChange,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 77
     },
     __self: this
   }), __jsx("button", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 78
     },
     __self: this
   }, "ok")), __jsx("div", {
     className: "tabelline-log",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 80
     },
     __self: this
-  }, displayLog()));
+  }, __jsx("ul", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: this
+  }, displayLog())));
 }
 
 function Tabelline() {
-  return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    content: __jsx(TabellineApp, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 50
-      },
-      __self: this
-    }),
+  return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    content: TabellineApp(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 89
     },
     __self: this
   });

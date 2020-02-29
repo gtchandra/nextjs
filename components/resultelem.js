@@ -1,4 +1,4 @@
 function ResultElem(props) {
-    return (<p className={props.ok?"result-elem-ok":"result-elem-ko"}>{props.text}{props.ok?props.rank:" 👎"}</p>)
+    return (<li className={props.ok?"result-elem-ok":"result-elem-ko"} key={props.pos}>{props.text}{props.ok?props.rank:" 👎"}</li>)
 }
 export default ResultElem

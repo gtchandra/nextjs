@@ -257,14 +257,15 @@ var _jsxFileName = "/Users/gab/nextjs/components/resultelem.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ResultElem(props) {
-  return __jsx("p", {
+  return __jsx("li", {
     className: props.ok ? "result-elem-ok" : "result-elem-ko",
+    key: props.pos,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 2
     },
     __self: this
-  }, props.text, props.ok ? " 😎" : " 👎");
+  }, props.text, props.ok ? props.rank : " 👎");
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (ResultElem);
@@ -2110,43 +2111,101 @@ function TabellineApp() {
     0: currentanswer,
     1: setCurrentanswer
   } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("");
+  const {
+    0: questionlist,
+    1: setQuestionlist
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]); //added state which includes all random  couples defined
+
+  const {
+    0: timespent,
+    1: setTimespent
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(10); // to be used as a timer backto 0 
+
+  const emojirank = ["😪", "🤨", "😐", "😅", "😉", "😀", "😄", "😁", "😎", "🤩", "🤩"];
 
   const handleSubmit = event => {
-    setCurrentquestion([2 + Math.floor(Math.random() * 8), 2 + Math.floor(Math.random() * 8)]);
+    var [a, b] = randomChoose();
+    setCurrentquestion([a, b]); // this has to change to improve randomness
+
     event.preventDefault();
     setCurrentanswer('');
+    setTimespent(10);
     addResults();
+  };
+
+  const randomGenerate = () => {
+    let x = [];
+
+    for (var i = 2; i < 10; i++) {
+      for (var j = 2; j < 10; j++) {
+        x.push([i, j]);
+      }
+    }
+
+    setQuestionlist(x);
+  };
+
+  const randomChoose = () => {
+    if (questionlist.length === 0) {
+      randomGenerate();
+    }
+
+    let chosen = Math.floor(Math.random() * questionlist.length);
+    let [out1, out2] = questionlist[chosen];
+    setQuestionlist(prevState => prevState.filter((x, i) => chosen != i ? x : null)); //return random couple and remove it from the array
+
+    return [out1, out2];
   };
 
   const addResults = () => {
     let a = currentquestion[0];
     let b = currentquestion[1];
+    let cnt = results.length;
 
     if (a * b === currentanswer) {
       setResults(prevState => [{
+        id: cnt,
         text: `${a}x${b}=${currentanswer}`,
+        rank: emojirank[timespent],
         ok: true
       }, ...prevState]);
     } else {
       setResults(prevState => [{
+        id: cnt,
         text: `${a}x${b}=${currentanswer}`,
         ok: false
       }, ...prevState]);
     }
-  }; // useEffect (()=>{
-  //     },[currentanswer])
+  };
 
+  function updateTimer() {
+    setTimespent(prev => prev > 0 ? prev - 1 : 0);
+  }
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
+    const timerOn = setInterval(() => {
+      updateTimer();
+    }, 1000);
+
+    if (questionlist.length === 0) {
+      randomGenerate();
+    }
+
+    return () => clearInterval(timerOn);
+  }, []);
 
   const handleChange = event => {
     setCurrentanswer(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(event.target.value, 10));
   };
 
-  const displayLog = () => results.map(r => __jsx(_components_resultelem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  const displayLog = () => results.map((r, i) => __jsx(_components_resultelem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    pos: i,
     text: r.text,
+    rank: r.rank,
     ok: r.ok,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 70
     },
     __self: this
   }));
@@ -2155,76 +2214,83 @@ function TabellineApp() {
     className: "tabelline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 72
     },
     __self: this
   }, __jsx("span", {
     className: "fadein",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 74
     },
     __self: this
-  }, "Solve: ", currentquestion[0], "X", currentquestion[1]), __jsx("br", {
+  }, currentquestion[0], "X", currentquestion[1], "? remaining:", questionlist.length), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 74
     },
     __self: this
-  }), __jsx("br", {
+  }), __jsx("span", {
+    className: "timer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 75
+    },
+    __self: this
+  }, emojirank[timespent]), __jsx("br", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
     },
     __self: this
   }), __jsx("form", {
-    autocomplete: "off",
+    autoComplete: "off",
     onSubmit: handleSubmit,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 76
     },
     __self: this
   }, __jsx("input", {
     className: "tabelline",
-    autofocus: true,
+    autoFocus: true,
     name: "currentanswer",
     value: currentanswer,
     type: "number",
     onChange: handleChange,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 77
     },
     __self: this
   }), __jsx("button", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 78
     },
     __self: this
   }, "ok")), __jsx("div", {
     className: "tabelline-log",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 80
     },
     __self: this
-  }, displayLog()));
+  }, __jsx("ul", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: this
+  }, displayLog())));
 }
 
 function Tabelline() {
   return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    content: __jsx(TabellineApp, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 50
-      },
-      __self: this
-    }),
+    content: TabellineApp(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 89
     },
     __self: this
   });

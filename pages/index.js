@@ -42,12 +42,13 @@ function TabellineApp() {
     const addResults=()=>{
         let a=currentquestion[0] 
         let b=currentquestion[1] 
-       
-        if ((a*b)===currentanswer) {
-            setResults((prevState)=>([{text:`${a}x${b}=${currentanswer}`,rank:emojirank[timespent],ok:true},...prevState]))
+        let cnt=results.length
+
+        if ((a*b)===currentanswer) {    
+            setResults((prevState)=>([{id:cnt, text:`${a}x${b}=${currentanswer}`,rank:emojirank[timespent],ok:true},...prevState]))
         }
         else {
-            setResults((prevState)=>([{text:`${a}x${b}=${currentanswer}`,ok:false},...prevState]))
+            setResults((prevState)=>([{id:cnt, text:`${a}x${b}=${currentanswer}`,ok:false},...prevState]))
         }
 
     }
@@ -66,7 +67,7 @@ useEffect (()=>{
     const handleChange=(event)=>{
         setCurrentanswer(parseInt(event.target.value,10))
     }
-    const displayLog = ()=>results.map((r)=>(<ResultElem text={r.text} rank={r.rank} ok={r.ok} />))
+    const displayLog = ()=>results.map((r,i)=>(<ResultElem pos={i} text={r.text} rank={r.rank} ok={r.ok} />))
     
     return (<div className="tabelline">
     
@@ -77,7 +78,9 @@ useEffect (()=>{
                     <button>ok</button>
                  </form>
                 <div className="tabelline-log">
-                  {displayLog()}
+                    <ul >
+                        {displayLog()}
+                    </ul>
                 </div>
             </div>)
 }

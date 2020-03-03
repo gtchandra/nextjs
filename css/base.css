@@ -24,11 +24,8 @@ span.timer {
     to {background-color: black;}
  }
 
-body.h2 {
-    color: #555;
-
-}
 input.tabelline {
+    font-size: 28px;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

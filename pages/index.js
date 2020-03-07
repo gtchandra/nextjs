@@ -9,6 +9,7 @@ function TabellineApp() {
     const [questionlist, setQuestionlist]=useState([]) //added state which includes all random  couples defined
     const [timespent, setTimespent]=useState(10) // to be used as a timer backto 0 
     const emojirank=["😪","🤨","😐","😅","😉","😀","😄","😁","😎","🤩","🤩"]
+    const [rank,setRank]=useState("")
 
     const handleSubmit=(event)=>{
         var [a,b]=randomChoose()
@@ -18,20 +19,31 @@ function TabellineApp() {
         setCurrentanswer('')
         setTimespent(10)
         addResults()
+        dumpTolocal()
+    }
+    const dumpTolocal=()=>{
+        if (results.length>0) {
+                let resAvg=results.reduce((acc,val)=>{
+                    return val.ok?acc+val.time:acc-15
+            },0)/results.length
+            let statView =resAvg>=0?emojirank[Math.round(resAvg)]:emojirank[0]
+            setRank(statView)
+        }
     }
     const randomGenerate =()=>{
         let x=[]
-        for (var i=2;i<10;i++) {
-            for (var j=2;j<10;j++) {
+        for (var i=2;i<5;i++) {
+            for (var j=2;j<5;j++) {
                 x.push([i,j])
             }   
         }
-        setQuestionlist(x)
+        setQuestionlist([...x])
     }
 
     const randomChoose =()=>{
-        if (questionlist.length===0) {
+        if (questionlist.length===1) {
             randomGenerate()
+            //state variable scope issue
         }
         let chosen=Math.floor(Math.random()*questionlist.length)
         let [out1,out2]=questionlist[chosen]
@@ -45,12 +57,11 @@ function TabellineApp() {
         let cnt=results.length
 
         if ((a*b)===currentanswer) {    
-            setResults((prevState)=>([{id:cnt, text:`${a}x${b}=${currentanswer}`,rank:emojirank[timespent],ok:true},...prevState]))
+            setResults((prevState)=>([{id:cnt, text:`${a}x${b}=${currentanswer}`,rank:emojirank[timespent],time:timespent,ok:true},...prevState]))
         }
         else {
             setResults((prevState)=>([{id:cnt, text:`${a}x${b}=${currentanswer}`,ok:false},...prevState]))
         }
-
     }
     function  updateTimer () {
          setTimespent((prev)=>(prev>0?prev-1:0))
@@ -71,7 +82,7 @@ useEffect (()=>{
     
     return (<div className="tabelline">
     
-                <span className="fadein" >{currentquestion[0]}X{currentquestion[1]}? remaining:{questionlist.length}</span><br/>
+<span className="fadein" >{currentquestion[0]}X{currentquestion[1]}?  your rank:{rank}</span><br/>
                 <span className="timer">{emojirank[timespent]}</span><br/>
                 <form autoComplete="off"  onSubmit={handleSubmit}>
                     <input className="tabelline" autoFocus name="currentanswer"  value={currentanswer} type="number" onChange={handleChange}/>

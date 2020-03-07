@@ -32,8 +32,8 @@ function TabellineApp() {
     }
     const randomGenerate =()=>{
         let x=[]
-        for (var i=2;i<5;i++) {
-            for (var j=2;j<5;j++) {
+        for (var i=2;i<10;i++) {
+            for (var j=2;j<10;j++) {
                 x.push([i,j])
             }   
         }

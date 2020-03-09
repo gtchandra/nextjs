@@ -1,0 +1,11 @@
+{
+    "env": {
+        "customSecret": "@customsecret"
+    },
+
+    "build": {
+        "env": {
+        "customSecret": "@customsecret"            
+    }
+  }
+  }

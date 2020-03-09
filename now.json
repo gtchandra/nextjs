@@ -1,7 +1,6 @@
 {
     "env": {
-      "DEMO_KEY": "@demo-key",
-      "DEMO_SECRET": "@demo-secret"
+        
     },
 
     "build": {

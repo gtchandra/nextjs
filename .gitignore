@@ -1,4 +1,6 @@
 .now
+.env
+.env.build
 .next
 /.next
 /node_modules

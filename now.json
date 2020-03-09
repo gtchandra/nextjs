@@ -1,11 +1,11 @@
 {
     "env": {
-        
+        "customSecret": "@customsecret"
     },
 
     "build": {
         "env": {
-            "customSecret": "@customSecret"
+        "customSecret": "@customsecret"            
     }
   }
   }

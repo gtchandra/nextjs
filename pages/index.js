@@ -1,8 +1,9 @@
 import Layout from "../components/MyLayout"
 import { useState, useEffect } from 'react'
 import ResultElem from "../components/resultelem"
-function TabellineApp() {
+import Displaystats from "../components/displaystats"
 
+function TabellineApp() {
     const [results, setResults]=useState([])
     const [currentquestion, setCurrentquestion]=useState([2+Math.floor(Math.random()*8),2+Math.floor(Math.random()*8)])
     const [currentanswer, setCurrentanswer]=useState("")
@@ -15,7 +16,9 @@ function TabellineApp() {
         var [a,b]=randomChoose()
         setCurrentquestion([a,b])        
         // this has to change to improve randomness
-        event.preventDefault()
+        if (typeof(event)!='undefined') {
+                event.preventDefault()
+        }
         setCurrentanswer('')
         setTimespent(10)
         addResults()
@@ -75,6 +78,14 @@ useEffect (()=>{
         return ()=>clearInterval(timerOn)
      },[])
 
+useEffect (()=>{
+    let a=currentquestion[0]
+    let b=currentquestion[1]
+    if (currentanswer===(a*b)) {
+       handleSubmit()
+    }
+ },[currentanswer])
+
     const handleChange=(event)=>{
         setCurrentanswer(parseInt(event.target.value,10))
     }
@@ -93,6 +104,7 @@ useEffect (()=>{
                         {displayLog()}
                     </ul>
                 </div>
+                <Displaystats content={results}/>
             </div>)
 }
 

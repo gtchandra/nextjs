@@ -2,6 +2,7 @@ import Layout from "../components/MyLayout"
 import { useState, useEffect } from 'react'
 import ResultElem from "../components/resultelem"
 import Displaystats from "../components/displaystats"
+//displaystats will be implemented later, now it's commented
 
 function TabellineApp() {
     const [results, setResults]=useState([])
@@ -104,7 +105,7 @@ useEffect (()=>{
                         {displayLog()}
                     </ul>
                 </div>
-                <Displaystats content={results}/>
+                {/* <Displaystats content={results}/> */}
             </div>)
 }
 
